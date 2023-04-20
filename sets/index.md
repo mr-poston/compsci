@@ -78,7 +78,7 @@ As you saw with other data structures such as stacks and queues, sets have a lim
 
 Here are the most commonly used set functions:
 
-|Error Class|Return Type|Description|
+|Function|Return Type|Description|
 |-----------|-----------|-----------|
 |`insert(value)`|`pair`|Inserts element into set. Returns position of element and bool to indicate whether the element was inserted.|
 |`find(value)`|`iterator`|Searches for an element and returns the position of the element. Returns the end position if not found.|
