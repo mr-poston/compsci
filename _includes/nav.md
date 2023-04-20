@@ -1,5 +1,5 @@
 ### Sets and Maps
 
 * [Pairs and Iterators](https://mr-poston.github.io/compsci/pairs_iterators/)
-* Sets
+* [Sets](https://mr-poston.github.io/compsci/sets/)
 * Maps
