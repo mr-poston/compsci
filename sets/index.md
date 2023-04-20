@@ -89,65 +89,9 @@ Here are the most commonly used set functions:
 |`begin()`|`iterator`|Returns the beginning position of the set.|
 |`end()`|`iterator`|Returns the end position of a set.|
 
-## [Try This Example](https://replit.com/@Poston/522-Basic-Sets#main.cpp)
+### Try This Example
 
-```c++
-#include "util.h"
-#include <set>
-
-int main(){
-    
-	set<int> numbers;
-	
-	// Add numbers 1 to 10
-	for (int i = 1; i <= 10; i++){
-		numbers.insert(i);
-	}
-	
-	int numToAdd = 5; // Try changing this number to 15
-	cout << "Set Size: ";
-	cout << numbers.size() << endl;
-	cout << "Trying to add " << numToAdd << endl;
-	
-	/* The insert command returns a pair. The first
-	 * value of the pair points to the iterator
-	 * location for that value (either the newly 
-	 * inserted value or the location of the previously
-	 * existing value). The second value is true if the
-	 * value was inserted, or false if it was not inserted
-	 * because it already exists.
-	 */
-	pair<set<int>::iterator,bool> rtrn = numbers.insert(numToAdd);
-	if (rtrn.second == true) {
-		cout << "Added " << numToAdd << endl;
-	}
-	else {
-		cout << numToAdd << " already exists." << endl;
-	}
-	
-	/* Alternatively, if you only want to know if the value was added,
-	 * you can just add a .second to the call and evaluate it.
-	 */
-	if (numbers.insert(numToAdd).second == true) {
-		cout << "Added " << numToAdd << endl;
-	}
-	else {
-		cout << numToAdd << " already exists." << endl;
-	}
-	// Sets offer fast searches
-	int searchVal = 7;
-	cout << "The value " << searchVal;
-	
-	if (numbers.find(searchVal) != numbers.end()){
-		cout << " is found in the set." << endl;
-	}
-	else {
-		cout << " is not found in the set." << endl;
-	}
-
-	return 0;
-}
-```
+<iframe src="https://replit.com/@Poston/522-Basic-Sets#main.cpp?embed=true" width="600" height="400"></iframe>
 
 ## Iterating Through a Set
 
@@ -196,47 +140,9 @@ while(itr != nums.end()){
     itr ++;
 }
 ```
-## [Try This Example](https://replit.com/@Poston/523-Iterating-Through-a-Set#main.cpp)
+### Try This Example
 
-```c++
-#include "util.h"
-#include <set>
-
-int main(){
-    
-	set<string> names {"Liam", "Olivia", "Noah", "Emma", "Oliver", 
-									"Ava", "William", "Sophia", "Elijah", "Isabella"};
-
-	/* Behind the scenes, sets are stored in a search tree.
-	 * This allows the user to search for an object quickly
-	 * but doesn't allow the user to find an object by an
-	 * index value.
-	 * If we want to loop through all objects, we need to
-	 * use an iterator.
-	 */
-	
-	// Run the code. What order does it print the names?
-	
-	// For loop
-	cout << "For Loop:" << endl;
-	for (set<string>::iterator it = names.begin(); it != names.end(); it ++){
-		// Remember to dereference the iterator to see the value
-		cout << *it << endl;
-	}
-	cout << endl;
-	
-	
-	// While Loop
-	cout << "While Loop:" << endl;
-	set<string>::iterator it = names.begin();
-	while(it != names.end()){
-		cout << *it << endl;
-		it ++;
-	}
-    
-    return 0;
-}
-```
+<iframe src="https://replit.com/@Poston/523-Iterating-Through-a-Set#main.cpp?embed=true" width="600" height="400"></iframe>
 
 ## Sets of Struct Values
 
@@ -297,73 +203,6 @@ In the example above, it is entirely possible for two rectangles to have the sam
 
 Keep this in mind as you decide on the criteria you use to determine the order. Instead of area, you could use another criterion to determine the order, such as size which would have given slightly different results.
 
-## [Try This Example](https://replit.com/@Poston/524-Sets-of-Struct-Values#main.cpp)
+### Try This Example
 
-```c++
-#include "util.h"
-#include <set>
-
-/* A set stores objects sorted. Before we can
- * create a set of struct values, we need to
- * tell C++ how to sort the objects.
- */
-
-struct student {
-	string firstName, lastName;
-	int id;
-	
-	/* A more unique feature of C++ is that
-	 * you can overload an operator. To provide
-	 * C++ a way to sort the struct, we overload
-	 * the < operator. To do this, we need
-	 * to follow the following syntax.
-	 */
-	bool operator <(student const &b) const {
-		/* Inside the code block, we can decide
-		 * which criteria to use to sort.
-		 */
-		return lastName < b.lastName;
-	}
-};
-
-/* Important Note:
- * We only need to define which value is < the
- * other. If two values are equal, then the struct
- * values are considered duplicates.
- */
-
-int main() {
-
-	set<student> myClass;
-
-	student s1;
-	s1.firstName = "Jackson";
-	s1.lastName = "Jones";
-	s1.id = 2;
-
-	/* What happens if you change Ryan's last
-	 * name to Jones?
-	 */
-	student s2;
-	s2.firstName = "Ryan";
-	s2.lastName = "Rice";
-	s2.id = 1;
-
-	student s3;
-	s3.firstName = "Isabella";
-	s3.lastName = "Isaacs";
-	s3.id = 3;
-
-	myClass.insert(s1);
-	myClass.insert(s2);
-	myClass.insert(s3);
-
-	for (set<student>::iterator it = myClass.begin(); it != myClass.end(); it++)
-	{
-		student s = *it;
-		cout << s.firstName <<  " " << s.lastName << endl;
-	}
-
-	return 0;
-}
-```
+<iframe src="https://replit.com/@Poston/524-Sets-of-Struct-Values#main.cpp?embed=true" width="600" height="400"></iframe>
