@@ -71,40 +71,9 @@ As mentioned above, pairs will be used for specific purposes in C++, like maps. 
 
 Alternatively, you can create a `name` struct and give the member names more descriptive values such as firstName and lastName.
 
-## [**Try This Example**](https://replit.com/@Poston/512-Pairs#main.cpp)
+## **Try This Example**
 
 <iframe src="https://replit.com/@Poston/512-Pairs#main.cpp?embed=true" width="600" height="400" />
-
-```c++
-#include "util.h"
-
-int main(){
-    
-	/* Pairs are a simple data structure that
-	 * contain two values that may or may
-	 * not be of the same type. The pair values
-	 * do not necessarily need to be related.
-	 */
-	
-	// Create with initial values
-	pair<int, int> nums {5,3};
-	
-	// Access using the keywords first and second
-	cout << nums.first << endl;
-	cout << nums.second << endl;
-	
-	pair<string, int> dog;
-	
-	// Set values the same way you access them
-	dog.first = "Spot";
-	dog.second = 4;
-	
-	cout << dog.first << " is " << dog.second;
-	cout << " years old." << endl;
-	
-	return 0;
-}
-```
 
 ## Iterators
 
