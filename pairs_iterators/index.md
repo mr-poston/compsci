@@ -149,7 +149,7 @@ As you iterate through the data structure, the iterator that you created actuall
 
 Take a look at the example below to see how this pointer works behind the scenes.
 
-<img src="iterator.gif" width="400">
+<img src="iterator.gif" width="800">
 
 *Image courtesy of pythontutor.com*
 
