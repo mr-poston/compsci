@@ -1,1 +1,1 @@
-[Pairs and Iterators](./../pairs_iterators/)
+[Pairs and Iterators](/pairs_iterators)
