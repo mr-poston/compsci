@@ -70,3 +70,74 @@ queue<pair<string, string> > names;
 As mentioned above, pairs will be used for specific purposes in C++, like maps. Beyond that, pairs do have limited use since it can often be just as easy and more descriptive to create a struct. For example, if you wanted to store the first and last name, you can do this with a pair and then represent the first name in the first position and the last name in the second position.
 
 Alternatively, you can create a `name` struct and give the member names more descriptive values such as firstName and lastName.
+
+Try This Example
+
+## Iterators
+
+Back in the Vectors lesson, you were briefly introduced to iterators. You saw how iterators could be used to set the position to insert into a vector. In this lesson, you will have a chance to explore iterators further in relation to vectors.
+
+It is typical to use a standard `for` loop to iterate through a vector, however an iterator can also be used. It is important to take time to understand how iterators can be used to loop through all the values of a data structure because they will be the only option when we get to our associative data structures such as sets and maps.
+
+### Creating the Iterator
+
+When declaring the iterator, you need to reference the entire variable type and then a double colon `::` followed by the keyword `iterator`. You then assign it to the beginning of the data structure using the `begin()` command.
+
+Here are a couple of examples:
+```c++
+vector<int> nums {1, 2, 3, 4, 5};
+
+vector<int>::iterator itr = nums.begin();
+```
+```c++
+vector<students> classRoster;
+
+vector<students>::iterator itr = classRoster.begin();
+```
+The iterator variable name can be anything. In these examples, `itr` is used.
+
+### Iterating Through a Data Structure
+
+Using an iterator, you can make use of either a for loop or a while loop to iterate through the data structure such as a vector.
+
+Take a look at the basic structure:
+```c++
+vector<int> nums {1, 2, 3, 4, 5};
+
+for (vector<int>::iterator itr = nums.begin(); itr != nums.end(); itr ++) {
+    // Loop code
+}
+```
+You will notice that the structure is very similar to any other for loop iteration. You initialize a value, loop until a condition is met, and increment up.
+
+(Oftentimes you may see the iterator declared before the for loop to help shorten the for loop line. Either way is acceptable.)
+
+### Accessing Values Using the Iterator
+
+As you iterate through the data structure, the iterator that you created actually points to the value each time through. To access that value, you need to use the dereference operator, `*`.
+
+Take a look at the example below to see how this pointer works behind the scenes.
+
+<img src="iterator.gif">
+
+*Image courtesy of pythontutor.com*
+
+In this example above, notice how the iterator points to each value in the vector in order. By using `*itr`, the program can access the value in the array to print it out.
+
+Once the loop reaches the end of the vector, the for loop is complete and the loop ends.
+
+The same loop can be completed as a `while` loop:
+```c++
+vector<int> nums {1, 2, 3, 4, 5};
+vector<int>::iterator itr = nums.begin();
+
+while (itr != nums.end()) {
+    cout << *itr << " ";
+    itr ++;
+}
+```
+In this example, the iterator was incremented up by 1. It is possible to increment by something other than 1, however, caution needs to be used. Unlike other loops that loop while a value is less than another value, iteration loops are looping while a value does not equal another value. If you are not careful, you may end up passing the endpoint without equalling it.
+
+If that happens, you will have an endless loop of printing out garbage! See this example at the bottom of this code.
+
+Try This Example

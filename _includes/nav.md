@@ -1,1 +1,1 @@
-[Pairs and Iterators](../pairs_iterators/index.md)
+[Pairs and Iterators](/../pairs_iterators/index.md)
