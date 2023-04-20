@@ -42,15 +42,15 @@ Accessing and updating values is similar to how values are accessed and updated 
 
 Example:
 ```c++
-pair<string, string> address {"Chicago", "IL"};
+pair<string, string> address {"Richardson", "TX"};
 
 cout << address.first << endl;
 cout << address.second << endl;
 ```
 Output:
 ```
-Chicago
-IL
+Richardson
+TX
 ```
 Updates are done using the same access.
 ```c++
@@ -71,7 +71,38 @@ As mentioned above, pairs will be used for specific purposes in C++, like maps. 
 
 Alternatively, you can create a `name` struct and give the member names more descriptive values such as firstName and lastName.
 
-Try This Example
+## [**Try This Example**](https://replit.com/@Poston/512-Pairs#main.cpp)
+
+```c++
+#include "util.h"
+
+int main(){
+    
+	/* Pairs are a simple data structure that
+	 * contain two values that may or may
+	 * not be of the same type. The pair values
+	 * do not necessarily need to be related.
+	 */
+	
+	// Create with initial values
+	pair<int, int> nums {5,3};
+	
+	// Access using the keywords first and second
+	cout << nums.first << endl;
+	cout << nums.second << endl;
+	
+	pair<string, int> dog;
+	
+	// Set values the same way you access them
+	dog.first = "Spot";
+	dog.second = 4;
+	
+	cout << dog.first << " is " << dog.second;
+	cout << " years old." << endl;
+	
+	return 0;
+}
+```
 
 ## Iterators
 
@@ -118,7 +149,7 @@ As you iterate through the data structure, the iterator that you created actuall
 
 Take a look at the example below to see how this pointer works behind the scenes.
 
-<img src="iterator.gif">
+<img src="iterator.gif" width="400">
 
 *Image courtesy of pythontutor.com*
 
@@ -140,4 +171,70 @@ In this example, the iterator was incremented up by 1. It is possible to increme
 
 If that happens, you will have an endless loop of printing out garbage! See this example at the bottom of this code.
 
-Try This Example
+## [**Try This Example**](https://replit.com/@Poston/513-Iterators#main.cpp)
+
+```c++
+#include "util.h"
+#include <vector>
+
+int main(){
+    
+	/* Iterators are tools that can be used to
+	 * iterate, or step through, a group of
+	 * numbers. You can iterate through data
+	 * structures like vectors, but sequential
+	 * structures do not require an iterator.
+	 * As you move into associative structures
+	 * such as sets and maps, iterators will
+	 * be required to iterate through the elements.
+	 */
+	 
+	vector<int> nums {1, 2, 3, 4, 5};
+	
+	/* To create an iterator, you need to define
+	 * it in terms of what you will iterate through.
+	 */
+	
+	vector<int>::iterator itr = nums.begin();
+	
+	/* As you loop through the vector, the itr value
+	 * points to the next element each time through
+	 * the loop. We start at the begining, loop
+	 * while you are not at the end, and increment
+	 * each time.
+	 *
+	 * Since this is a pointer to the actual value
+	 * and not the actual value, you need to use the
+	 * dereference operator by adding a * before the 
+	 * itr value. You will see more about pointers
+	 * in a later unit.
+	 */
+	
+	cout << "Print out all the numbers: ";
+	for (itr = nums.begin(); itr != nums.end(); itr ++){
+		cout << *itr << " ";
+	}
+	cout << endl;
+	
+	/* While iterators work great when visiting
+	 * every number, they don't work well when you
+	 * want to increment by something other than
+	 * one.
+	 * Try running the code below. There is a counter
+	 * to make sure the code doesn't get stuck in
+	 * an infinite loop.
+	 */
+	
+	// What happens after it prints out the 5?
+	int counter = 0;
+	cout << "Print out every other number: ";
+	for (itr = nums.begin(); itr != nums.end(); itr += 2){
+		cout << *itr << " ";
+		counter ++;
+		if (counter > 10) break;
+	}
+	cout << endl;
+	
+	return 0;
+}
+```
