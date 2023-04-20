@@ -171,6 +171,24 @@ In this example, the iterator was incremented up by 1. It is possible to increme
 
 If that happens, you will have an endless loop of printing out garbage! See this example at the bottom of this code.
 
+### Removing Values from a Vector Using an Iterator
+
+You can remove an element from a vector using the `erase` function of the `vector` class. The function requires an iterator pointing to the element to be removed.
+
+An iterator pointing to the beginning of the vector by calling the `begin` function of the `vector` class.
+
+Example:
+```c++
+vector<int> numbers {0, 1, 2, 3, 4};
+
+// remove the element at index 2
+numbers.erase(numbers.begin() + 2);
+
+// numbers now contains {0, 1, 3, 4}
+```
+
+In the example above, an iterator pointing to the beginning of `numbers` was created with the call `numbers.begin()`. Then we just add the number of the index to be removed to advance the iterator. Finally, we can pass the iterator (already advanced to the correct position) to the `erase` function.
+
 ## [**Try This Example**](https://replit.com/@Poston/513-Iterators#main.cpp)
 
 ```c++
