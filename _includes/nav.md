@@ -3,13 +3,14 @@
 </details>
 
 <details>
-    <summary><a href="https://mr-poston.github.io/compsci/cpp/C++</summary>
+    <summary>C++</summary>
+    <a href="https://mr-poston.github.io/com>
         <details>
             <summary>Sets and Maps</summary>
             <ul>
-                <li><a href="https://mr-poston.github.io/compsci/pairs_iterators/">Pairs and Iterators</a></li>
-                <li><a href="https://mr-poston.github.io/compsci/sets/">Sets</a></li>
-                <li><a href="https://mr-poston.github.io/compsci/maps/">Maps</a></li>
+                <li><a href="https://mr-poston.github.io/compsci/cpp/pairs_iterators/">Pairs and Iterators</a></li>
+                <li><a href="https://mr-poston.github.io/compsci/cpp/sets/">Sets</a></li>
+                <li><a href="https://mr-poston.github.io/compsci/cpp/maps/">Maps</a></li>
             </ul>
         </details>
 </details>
