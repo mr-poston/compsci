@@ -1,0 +1,201 @@
+# Maps
+
+When you think of a map, you often think of cities, roads, and highways. In computer science, maps mean something a little different!
+
+Maps are a very useful data structure utilizing a key instead of an index. Like sets, they store data in a manner that is easy and efficient to access.
+
+## Map Basics
+
+Maps are a helpful data structure that utilizes a key/value pair. While maps are part of the standard C++ library, you do need to include them at the top of your program.
+```c++
+#include <map>
+```
+
+### Creating a Map
+
+When you create a map, you can specify any data type for the key and any type for the value.
+```c++
+map<keyType, valueType> variableName;
+```
+**Examples**:
+```c++
+map<string, double> catalog;
+map<int, string> products;
+map<string, int> roster;
+```
+Notice that you define two types, the key, then the value. In a map, the key needs to be unique, but the values do not.
+
+Like other data structures, maps can be declared and initialized or just declared. Initial values need to have both the key and value in a nested set of curly brackets.
+
+Take a look at the example below.
+```c++
+map<string, double> catalog {{"treats", 3.99}, {"leash", 8.99}, {"crate", 24.99}};
+```
+In this declaration, a map called `catalog` is created with 3 initial values. The keys are strings, `treats`, `leash`, and `crate`, with values of `3.99`, `8.99`, and `24.99` respectively.
+
+### Inserting Into a Map
+
+Adding to a map once it has been declared can be done in one of two ways.
+
+First, you can use the `insert` using the insert command. The insert command takes a C++ `pair` object however you can easily create the pair inline.
+```c++
+catalog.insert(pair<string, double>("bed", 19.99));
+```
+The pair variable types should match the variable types of the map, however, some implicit conversion is possible with numbers.
+
+You can also insert a new value with the `[ ]` operator. When using the `[ ]` and specifying a key that doesn’t exist, you can add the new key to the map.
+
+For example, if we wanted to add a `chew toy` to the catalog, it would look like this:
+```c++
+catalog["chew toy"] = 8.99;
+```
+
+### Access Map Values
+
+As mentioned before, access to maps values is via the map key. Like vectors, you can access maps in two different ways, using the `[ ]` operator or using the `at(key)` function.
+
+Just like vectors, the `at` function will throw an error if the key is not found. In contrast, if you use the `[ ]` operator and a key is not found, it will actually create a new map entry with a default value. Both can be useful, and both need to be used with care so you don’t have unintended consequences.
+
+### Other Map Functions
+
+Like the other data structures you have explored, maps have additional functions, some of which will be explored later in this lesson. In this example, you will notice the use of `size`. Maps have both a `size` and an `empty` function that perform the same way as the other data structures you have seen so far.
+
+### Try This Example
+
+<iframe src="https://replit.com/@Poston/542-Map-Basics?embed=true" width="600" height="400"></iframe>
+
+## Iterating Through a Map
+
+Like sets, maps do not save values by an index, so iterating through a map can only be done via an iterator. Maps iterate in a sort order based on the key.
+
+### Map For Loop
+
+The map for loop looks very similar to the set for loop. The main difference is that once you get the iterator value, it returns a pair that needs to be accessed a little differently.
+
+Here is an example using our `catalog` map from the earlier example.
+```c++
+map<string, double> catalog {{"treats", 3.99}, {"leash", 8.99}, {"crate", 24.99}};
+
+for (map<string, double>::iterator itr = catalog.begin(); itr != catalog.end(); itr ++) {
+    cout << "Key: " << itr->first << endl;
+    cout << "Value: " << itr->second << endl;
+}
+```
+Notice in this example how the basic structure of the for loop is the same as you saw with sets. The iterator is declared and initialized to the beginning of your map, then the loop continues until the iterator reaches the end, incrementing up each time.
+
+The difference here is that you need to access a pair of values instead of just one like you saw with sets. To get the key, you access the first element of the pair, and the value is in the second element of the pair.
+
+Just like in sets, you need to dereference the value using a `*`, then use the dot operator, `.` to access the value. For example, you could access the value like this: `(*itr).first`.
+
+Since accessing a dot member for a dereference value is common, C++ has an arrow shortcut, which you see above. Instead of using the star, parenthesis, and dot, you can use `->` as a shortcut.
+```c++
+// Equivalent expressions
+key = (*itr).first;
+key = itr->first;
+```
+You will seldom see the former version used and we will exclusively use the latter.
+
+### Find Function in Maps
+
+As you have seen in other data structures, maps have a find function that will return an iterator position of a key in the map. While the iterator position is not particularly useful, it can be useful when compared to the map’s end position.
+
+Here is an example.
+```c++
+if (catalog.find("leash") != catalog.end()) {
+    // key found
+}
+else {
+    // key not found
+}
+```
+Remember from the last example, if you try to access a key that is not found using the `at` function, you will get an error. If you try to access a key that is not found using the `[ ]` operator, you will insert a new value into the map, which may not be desired. Using the `find` function can help you avoid unintended consequences.
+
+### Try This Example
+
+<iframe src="https://replit.com/@Poston/543-Iterating-Through-a-Map?embed=true" width="600" height="400"></iframe>
+
+## Updating Maps
+
+Like other data structures that use the `[ ]` operator, maps allow updates in the same way. With maps, it gets a little more tricky since the `[ ]` operator is also used to create new values.
+
+### Access vs Update vs Insert
+
+When using the `[ ]` operator, you can do one of three things, access, update, or insert. If the key currently exists you will access it or update it with an assignment operator.
+
+Take a look at this map:
+```c++
+map<string, int> people {{"James", 14}, {"Julie", 15}};
+```
+Map values:
+```
+James - 14
+Julie - 15
+```
+You can access and update values with these statements:
+```c++
+// Access the value
+cout << "James' age: << people["James"] << endl;
+
+// Update the value
+people["Julie"] =  14;
+```
+Map Values after this statement:
+```
+James - 14
+Julie - 14
+```
+If the key doesn’t exist, the exact same sets of commands can be executed, but much different results.
+```c++
+// Access the value
+cout << "Kyle's age: << people["Kyle"] << endl;
+
+// Update the value
+people["Karen"] =  14;
+```
+Map Values after this statement:
+```
+James - 14
+Julie - 14
+Kyle - 0
+Karen - 14
+```
+Notice how the access in the print line created a new map entry with `Kyle` as the key and a default value of 0. Likewise, the access statement created a new entry with `Karen` as the key and a value of 14.
+
+### Update With `.at()`
+
+Just like with the `[ ]` operator, the `.at()` can also be used to update values. As mentioned before, if you use the `.at()` and a value does not exist, it will throw an error.
+
+Using the above example:
+```c++
+// Updates Karent to 15
+people.at("Karen") =  15;
+
+// Throws an error
+people.at("Mikayla") = 14;
+```
+### Shortcut Operators
+
+Shortcut operators are also available for maps:
+```c++
+people["James"] ++; // add one to James
+people["Julie] *= 2; // Double Julie
+people["Karel"] ++; // Creates a new entry with a value of 1
+```
+Shortcuts work as expected, but notice in the last example how they can still be used to create new values and they perform the operation after the default value is created. You saw above that Kyle was created with a default value of 0, but since Karel is created with the incrementor, the value ends at 1.
+
+### Insert Function
+
+You saw the basic insert command in an earlier example. Insert in maps actually works as it does for sets. There is a return `pair` with the first value being an iterator that points to the position of the element and the second value being a boolean as to whether the value was inserted.
+```c++
+map<string, int> people {{"James", 14}, {"Julie", 15}};
+
+pair<map<string,int>::iterator, bool> rtn = 
+        stock.insert(pair<string, int>("Kyle", 16));
+
+cout << rtn.second << endl;
+```
+In the above example, the output will be `1` for true.
+
+### Try This Example
+
+<iframe src="https://replit.com/@Poston/544-Updating-Maps?embed=true" width="600" height="400"></iframe>
