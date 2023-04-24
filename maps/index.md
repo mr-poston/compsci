@@ -28,9 +28,13 @@ Notice that you define two types, the key, then the value. In a map, the key nee
 Like other data structures, maps can be declared and initialized or just declared. Initial values need to have both the key and value in a nested set of curly brackets.
 
 Take a look at the example below.
+
+{% raw %}
 ```c++
-map<string, double> catalog { {"treats", 3.99}, {"leash", 8.99}, {"crate", 24.99} };
+map<string, double> catalog {{"treats", 3.99}, {"leash", 8.99}, {"crate", 24.99}};
 ```
+{% endraw %}
+
 In this declaration, a map called `catalog` is created with 3 initial values. The keys are strings, `treats`, `leash`, and `crate`, with values of `3.99`, `8.99`, and `24.99` respectively.
 
 ### Inserting Into a Map
