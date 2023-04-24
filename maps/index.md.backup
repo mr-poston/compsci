@@ -1,3 +1,5 @@
+
+
 # Maps
 
 When you think of a map, you often think of cities, roads, and highways. In computer science, maps mean something a little different!
@@ -77,6 +79,7 @@ Like sets, maps do not save values by an index, so iterating through a map can o
 The map for loop looks very similar to the set for loop. The main difference is that once you get the iterator value, it returns a pair that needs to be accessed a little differently.
 
 Here is an example using our `catalog` map from the earlier example.
+<!-- {% raw %} -->
 ```c++
 map<string, double> catalog {{"treats", 3.99}, {"leash", 8.99}, {"crate", 24.99}};
 
@@ -203,3 +206,4 @@ In the above example, the output will be `1` for true.
 ### Try This Example
 
 <iframe src="https://replit.com/@Poston/544-Updating-Maps?embed=true" width="600" height="400"></iframe>
+

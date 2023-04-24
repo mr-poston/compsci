@@ -1,4 +1,5 @@
-<!-- {% raw %} -->
+
+
 # Maps
 
 When you think of a map, you often think of cities, roads, and highways. In computer science, maps mean something a little different!
@@ -30,7 +31,7 @@ Like other data structures, maps can be declared and initialized or just declare
 
 Take a look at the example below.
 
-
+<!-- {% raw %} -->
 ```c++
 map<string, double> catalog {{"treats", 3.99}, {"leash", 8.99}, {"crate", 24.99}};
 ```
@@ -78,6 +79,7 @@ Like sets, maps do not save values by an index, so iterating through a map can o
 The map for loop looks very similar to the set for loop. The main difference is that once you get the iterator value, it returns a pair that needs to be accessed a little differently.
 
 Here is an example using our `catalog` map from the earlier example.
+<!-- {% raw %} -->
 ```c++
 map<string, double> catalog {{"treats", 3.99}, {"leash", 8.99}, {"crate", 24.99}};
 
@@ -86,6 +88,7 @@ for (map<string, double>::iterator itr = catalog.begin(); itr != catalog.end(); 
     cout << "Value: " << itr->second << endl;
 }
 ```
+<!-- {% endraw %} -->
 Notice in this example how the basic structure of the for loop is the same as you saw with sets. The iterator is declared and initialized to the beginning of your map, then the loop continues until the iterator reaches the end, incrementing up each time.
 
 The difference here is that you need to access a pair of values instead of just one like you saw with sets. To get the key, you access the first element of the pair, and the value is in the second element of the pair.
@@ -128,9 +131,11 @@ Like other data structures that use the `[ ]` operator, maps allow updates in th
 When using the `[ ]` operator, you can do one of three things, access, update, or insert. If the key currently exists you will access it or update it with an assignment operator.
 
 Take a look at this map:
+<!-- {% raw %} -->
 ```c++
 map<string, int> people {{"James", 14}, {"Julie", 15}};
 ```
+<!-- {% endraw %} -->
 Map values:
 ```
 James - 14
@@ -191,6 +196,7 @@ Shortcuts work as expected, but notice in the last example how they can still be
 ### Insert Function
 
 You saw the basic insert command in an earlier example. Insert in maps actually works as it does for sets. There is a return `pair` with the first value being an iterator that points to the position of the element and the second value being a boolean as to whether the value was inserted.
+<!-- {% raw %} -->
 ```c++
 map<string, int> people {{"James", 14}, {"Julie", 15}};
 
@@ -199,8 +205,10 @@ pair<map<string,int>::iterator, bool> rtn =
 
 cout << rtn.second << endl;
 ```
+<!-- {% endraw %} -->
 In the above example, the output will be `1` for true.
 
 ### Try This Example
 
 <iframe src="https://replit.com/@Poston/544-Updating-Maps?embed=true" width="600" height="400"></iframe>
+
