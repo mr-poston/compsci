@@ -1,0 +1,63 @@
+# Java Topics
+
+## Part 1
+
+1. Intro to Java
+2. Basic Data Types
+3. Operators
+4. Naming Conventions
+5. Concatenation
+6. User Input
+7. Escape Sequences
+8. If Statements
+9. Variable Scope
+10. Nested ifs
+11. Boolean Variables
+12. While Loops
+13. Nested Loops
+14. For Loops / Random Numbers
+15. Math Class Methods
+16. String Methods
+17. Arrays
+18. Writing Methods
+19. split() Method
+20. char Type (Advanced)
+21. switch Statements
+22. Object Oriented Programming
+
+## Part 2
+
+1. Object Oriented Programming
+2. More on Scanners
+3. Input from Text File
+4. Arrays of Objects
+5. Access Modifiers
+6. 2D Arrays
+7. ArrayList
+8. HashMaps
+9. Inheritance / Polymorphism
+10. Object Class
+11. Abstract Classes
+12. Interfaces
+13. Recursion
+14. Searching / Sorting
+15. Boolean Algebra
+16. Big O
+
+## Part 3
+
+1. Stacks
+2. Queues
+3. Ring Buffers
+4. Linked Lists
+5. Recursion
+6. Backtracking
+7. Binary Trees / BST
+8. PriorityQueue
+9. Array Heap
+10. Closed Hashing
+11. Open Hashing
+12. Bitwise Operators
+13. Graphs
+14. Memoization
+15. Dynamic Programming
