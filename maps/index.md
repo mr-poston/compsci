@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 # Maps
 
 When you think of a map, you often think of cities, roads, and highways. In computer science, maps mean something a little different!
@@ -29,7 +30,7 @@ Like other data structures, maps can be declared and initialized or just declare
 
 Take a look at the example below.
 
-<!-- {% raw %} -->
+
 ```c++
 map<string, double> catalog {{"treats", 3.99}, {"leash", 8.99}, {"crate", 24.99}};
 ```
